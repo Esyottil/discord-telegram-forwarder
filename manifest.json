@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Discord Telegram Forwarder",
+  "version": "1.0",
+  "description": "Пересылает новые сообщения из Discord в Telegram",
+  "permissions": ["storage"],
+  "host_permissions": ["https://discord.com/*", "https://api.telegram.org/*"],
+  "content_scripts": [{
+    "matches": ["https://discord.com/*"],
+    "js": ["content.js"],
+    "run_at": "document_end"
+  }],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

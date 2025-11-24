@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 350px; padding: 20px; font-family: Arial, sans-serif; }
+    .input-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+    input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+    button { width: 100%; padding: 12px; background: #5865f2; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; }
+    button:hover { background: #4752c4; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    .status { margin-top: 15px; padding: 10px; border-radius: 5px; display: none; }
+    .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+    .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    .toggle { display: flex; align-items: center; margin-bottom: 15px; }
+    .toggle input { width: auto; margin-right: 10px; }
+    .toggle label { margin: 0; font-weight: normal; }
+  </style>
+</head>
+<body>
+  <h3 style="margin-top: 0; color: #5865f2;">Discord → Telegram</h3>
+  
+    <div class="input-group" style="background: #f8f9fa; padding: 10px; border-radius: 5px; border: 1px solid #e9ecef;">
+    <h4 style="margin: 0 0 10px 0; color: #5865f2;">Функции:</h4>
+    <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 12px;">
+        <li>📨 Пересылка из Discord в Telegram</li>
+        <li>👤 Имя пользователя и время</li>
+        <li>💬 Ответы из Telegram в Discord</li>
+        <li>✅ Подтверждение отправки</li>
+    </ul>
+    </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="enabled" checked>
+    <label for="enabled">Включить пересылку</label>
+  </div>
+  
+  <div class="input-group">
+    <label for="botToken">Token бота Telegram:</label>
+    <input type="password" id="botToken" placeholder="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11">
+  </div>
+  
+  <div class="input-group">
+    <label for="chatId">ID чата Telegram:</label>
+    <input type="text" id="chatId" placeholder="123456789">
+  </div>
+  
+  <div class="input-group">
+    <label for="keywords">Ключевые слова (через запятую):</label>
+    <textarea id="keywords" rows="3" placeholder="важное, срочно, alert"></textarea>
+    <small style="color: #666;">Оставьте пустым для пересылки всех сообщений</small>
+  </div>
+  
+  <button id="saveBtn">Сохранить настройки</button>
+  
+  <div id="status" class="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
